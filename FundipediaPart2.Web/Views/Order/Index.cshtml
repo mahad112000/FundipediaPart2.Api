@@ -1,0 +1,45 @@
+﻿
+@model OrderViewModel
+
+@{
+    ViewData["Title"] = "Order";
+}
+
+<h1>Order Processing</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form>
+                <div class="form-group">
+                    <input id="IsLargeOrder" asp-for="IsLargeOrder" type="checkbox" class="form-check-input" />
+                    <label asp-for="IsLargeOrder" class="form-check-label"></label>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input id="IsNewCustomer" asp-for="IsNewCustomer" type="checkbox" class="form-check-input" />
+                    <label asp-for="IsNewCustomer" class="form-check-label"></label>
+                </div>
+                 <br />
+                <div class="form-group">
+                    <input id="IsRushOrder" asp-for="IsRushOrder" type="checkbox" class="form-check-input" />
+                    <label asp-for="IsRushOrder" class="form-check-label"></label>
+                </div>
+                <br />
+                <div class="form-group">
+                    <select id="drpType" class="form-control" asp-for="Type" asp-items="@(new SelectList(Model.OrderTypes, "Value", "Text"))">
+                    </select>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input id="btnOrderProcess" type="submit" value="Process order" class="btn btn-primary" />
+                </div>
+                <br />
+                <div class="form-group">
+                    <span id="orderStatus"></span>
+                </div>
+        </form>
+    </div>
+</div>
+
+
+
